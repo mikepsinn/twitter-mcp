@@ -6,24 +6,24 @@ startCommand:
     # JSON Schema defining the configuration options for the MCP.
     type: object
     required:
-      - apiKey
-      - apiSecretKey
-      - accessToken
-      - accessTokenSecret
+      - twitterApiKey
+      - twitterApiSecretKey
+      - twitterAccessToken
+      - twitterAccessTokenSecret
     properties:
-      apiKey:
+      twitterApiKey:
         type: string
         description: Twitter API key.
-      apiSecretKey:
+      twitterApiSecretKey:
         type: string
         description: Twitter API secret key.
-      accessToken:
+      twitterAccessToken:
         type: string
         description: Twitter access token.
-      accessTokenSecret:
+      twitterAccessTokenSecret:
         type: string
         description: Twitter access token secret.
   commandFunction:
     # A function that produces the CLI command to start the MCP on stdio.
     |-
-    config => ({command: 'node', args: ['build/index.js'], env: {API_KEY: config.apiKey, API_SECRET_KEY: config.apiSecretKey, ACCESS_TOKEN: config.accessToken, ACCESS_TOKEN_SECRET: config.accessTokenSecret}})
+    config => ({command: 'node', args: ['build/index.js'], env: {TWITTER_API_KEY: config.twitterApiKey, TWITTER_API_SECRET_KEY: config.twitterApiSecretKey, TWITTER_ACCESS_TOKEN: config.twitterAccessToken, TWITTER_ACCESS_TOKEN_SECRET: config.twitterAccessTokenSecret}})
